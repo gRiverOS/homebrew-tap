@@ -8,9 +8,12 @@ Homebrew tap for my macOS apps.
 brew install --cask gRiverOS/tap/notch-prompter
 ```
 
-Or tap first and then install by name:
+Since Homebrew 6, non-official taps are untrusted by default. Installing with the fully qualified name above trusts that single cask and works in one step.
+
+To use the short name instead, trust the whole tap first:
 
 ```bash
+brew trust gRiverOS/tap
 brew tap gRiverOS/tap
 brew install --cask notch-prompter
 ```
