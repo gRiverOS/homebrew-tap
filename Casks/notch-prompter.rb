@@ -1,6 +1,6 @@
 cask "notch-prompter" do
-  version "0.4.0"
-  sha256 "2e6f85f8da22d4c43d80b80243a82aadc1ec9d1020d32cec29f92933b44828ed"
+  version "0.4.1"
+  sha256 "89ca63541ae3729939bae7dc6241aa0966002524d49cc32cce4872ff5edc7a5d"
 
   url "https://github.com/gRiverOS/notch-prompter/releases/download/v#{version}/NotchPrompter-#{version}.zip"
   name "Notch Prompter"
