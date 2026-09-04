@@ -3,7 +3,7 @@ cask "notch-prompter" do
   sha256 "e88850e721cc1af58b2406102fc84f1a66b9f8330e1f98415a93b4f073bb50d7"
 
   url "https://github.com/gRiverOS/notch-prompter/releases/download/v#{version}/NotchPrompter-#{version}.zip"
-  name "NotchPrompter"
+  name "Notch Prompter"
   desc "Teleprompter that hangs from the MacBook notch"
   homepage "https://github.com/gRiverOS/notch-prompter"
 
@@ -14,9 +14,13 @@ cask "notch-prompter" do
 
   depends_on macos: :sonoma
 
-  app "NotchPrompter.app"
+  app "Notch Prompter.app"
 
-  uninstall quit: "cl.gustavo.NotchPrompter"
+  # delete: removes the pre-0.4.0 bundle, which was named without the space.
+  # Upgrades run the new cask's uninstall, so without this the old app would be
+  # left orphaned in /Applications alongside the renamed one.
+  uninstall quit:   "cl.gustavo.NotchPrompter",
+            delete: "/Applications/NotchPrompter.app"
 
   zap trash: [
     "~/Library/Caches/cl.gustavo.NotchPrompter",
