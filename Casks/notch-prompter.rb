@@ -16,11 +16,10 @@ cask "notch-prompter" do
 
   app "Notch Prompter.app"
 
-  # delete: removes the pre-0.4.0 bundle, which was named without the space.
-  # Upgrades run the new cask's uninstall, so without this the old app would be
-  # left orphaned in /Applications alongside the renamed one.
-  uninstall quit:   "cl.gustavo.NotchPrompter",
-            delete: "/Applications/NotchPrompter.app"
+  # No delete: stanza for the pre-0.4.0 bundle. Homebrew already removes the
+  # previously installed app from its own Caskroom record, and a delete: path
+  # makes every later upgrade shell out to sudo, which fails non-interactively.
+  uninstall quit: "cl.gustavo.NotchPrompter"
 
   zap trash: [
     "~/Library/Caches/cl.gustavo.NotchPrompter",
